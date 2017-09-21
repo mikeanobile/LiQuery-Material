@@ -3,6 +3,8 @@
 angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
 // ngTouch is No Longer Supported by Angular-Material
 
+
+
 .run(function($rootScope, $cordovaDevice, $cordovaStatusbar){
   document.addEventListener("deviceready", function () {
 	// Set AdMobAds options:
@@ -30,3 +32,4 @@ angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
     .primaryPalette('red')
     .accentPalette('blue');
 });
+

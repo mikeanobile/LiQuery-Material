@@ -40,10 +40,10 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-whitelist": "1.3.2",
-    "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-geolocation": "2.4.3",
-    "cordova-plugin-extension": "1.5.2",
-    "cordova-plugin-admobpro": "2.29.23"
+    "cordova-plugin-admobpro": "2.29.23",
+    "cordova-plugin-compat": "1.0.0",
+    "cordova-plugin-extension": "1.5.2"
 };
 // BOTTOM OF METADATA
 });

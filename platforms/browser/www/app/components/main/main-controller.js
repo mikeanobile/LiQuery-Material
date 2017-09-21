@@ -2,6 +2,7 @@
 
 angular.module("ngapp").controller("MainController", function(shared, $state, $scope, $http, $mdSidenav, $mdComponentRegistry){
 
+
     var ctrl = this;
 
     this.auth = shared.info.auth;
@@ -35,6 +36,7 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	var baseURL = "https://www.liquery.com:8443/LiqueryAPI/GetProduct?search=";
 
 	$scope.products = []
+	$scope.totalItems = 0;
 
 	$scope.getProducts = function(value) {
 		var search = $scope.search;
@@ -44,6 +46,8 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 		$http.get(url).then(function (response) {
 			if (angular.isUndefined(response.data.products[0])) {
 				console.log("No results.");
+				$scope.products = [];
+				$scope.totalItems = 0; 
 			}
 			else {
 				$scope.products = response.data.products;
