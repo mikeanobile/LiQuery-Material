@@ -18,10 +18,16 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "LiQuery Mobile"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "LiQuery Mobile"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "LiQuery Mobile"
+        },
+        "cordova-plugin-extension": {
             "PACKAGE_NAME": "LiQuery Mobile"
         }
     }

@@ -19,10 +19,16 @@
         "cordova-plugin-geolocation": {
             "GEOLOCATION_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.liquery.liquerymobile"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.liquery.liquerymobile"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.liquery.liquerymobile"
+        },
+        "cordova-plugin-extension": {
             "PACKAGE_NAME": "com.liquery.liquerymobile"
         }
     }

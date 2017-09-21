@@ -25,6 +25,13 @@ module.exports = [
         "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
         "id": "cordova-plugin-geolocation.PositionError",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "id": "cordova-plugin-admobpro.AdMob",
+        "clobbers": [
+            "window.AdMob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -34,7 +41,9 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-whitelist": "1.3.2",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-geolocation": "2.4.3"
+    "cordova-plugin-geolocation": "2.4.3",
+    "cordova-plugin-extension": "1.5.2",
+    "cordova-plugin-admobpro": "2.29.23"
 };
 // BOTTOM OF METADATA
 });
