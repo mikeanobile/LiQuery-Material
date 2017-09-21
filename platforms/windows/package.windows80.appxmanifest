@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-    <Identity Name="com.liquery.liquerymobile" Publisher="CN=$username$" Version="1.0.1.0" />
+    <Identity Name="com.liquery.liquerymobile" Publisher="CN=$username$" Version="1.1.0.0" />
     <Properties>
         <DisplayName>LiQuery Mobile</DisplayName>
         <PublisherDisplayName>LiQuery</PublisherDisplayName>
@@ -28,5 +28,6 @@
     </Applications>
     <Capabilities>
         <Capability Name="internetClient" />
+        <DeviceCapability Name="location" />
     </Capabilities>
 </Package>

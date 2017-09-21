@@ -15,7 +15,15 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.github.corodva-angular-angularMaterial-seed"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.liquery.liquerymobile"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.liquery.liquerymobile"
+        }
+    }
 }

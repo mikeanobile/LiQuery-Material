@@ -15,7 +15,14 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "MaterialSeed"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "LiQuery Mobile"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "LiQuery Mobile"
+        }
+    }
 }
