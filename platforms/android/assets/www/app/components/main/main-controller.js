@@ -41,12 +41,23 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	$scope.mindistanceint = 0;
 	$scope.search = "";
 	$scope.postalcode = "";
+	$scope.results = 10;
+	$scope.radius = 10;
+	$scope.page = 1;
+	$scope.price = 50;
+	$scope.orderby = "avgpercent";
+	$scope.order = "desc";
 
 	$scope.getProducts = function(value) {
 		var search = $scope.search;
 		var postalcode = $scope.postalcode;
 		var radius = $scope.radius;
-		var url = baseURL + search + "&postalcode=" + postalcode + "&radius=" + radius + "&order=avgpercent desc";
+		var limit = $scope.results;
+		var page = $scope.page;
+		var price = $scope.price;
+		var orderby = $scope.orderby
+		var order = $scope.order
+		var url = baseURL + search + "&postalcode=" + postalcode + "&radius=" + radius + "&limit=" + limit + "&page=" + page + "&price=" + price + "&order=" + orderby + " " + order;
 		console.log(url);
 		$http.get(url).then(function (response) {
 			if (angular.isUndefined(response.data.products[0])) {
@@ -65,7 +76,8 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 			}
 		});
 	}
-	
+	$scope.onSwipeLeft = function() { $scope.page++; $scope.getProducts(); }
+	$scope.onSwipeRight = function() { $scope.page=1; $scope.getProducts(); } 
 	$scope.getLocation = function(position) {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
@@ -87,4 +99,39 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	$scope.getLocation();	
 	
 	$scope.distances = [ 5, 10, 25, 50 ];
+	$scope.columns = 	[ 
+							"price",
+							"itemnum",
+							"itemname",
+							"inventory",
+							"percent",
+							"lastpricechange",
+							"numstores",
+							"score",
+							"size",
+							"quantity",
+							"vintage",
+							"stocktype",
+							//"vqa",
+							"releasedate",
+							"producer",
+							"country",
+							"region",
+							"airmiles",
+							"identity",
+							"type",
+							"style",
+							"alcohol",
+							"varietal",
+							//"sugarcode",
+							"sugar",
+							//"cellarfrom",
+							//"cellaruntil",
+							//"description",
+							//"tastingnotes",
+							//"serving",
+							"rand()"
+						];
+						
+		$scope.types = [ "Wine", "Beer", "Spirits" ];
 });

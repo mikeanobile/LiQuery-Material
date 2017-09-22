@@ -13,6 +13,60 @@
     <h1 class="md-toolbar-tools">Menu</h1>
   </md-toolbar>
   <md-list ng-cloak>
+  
+  	<md-list-item>
+      <md-slider-container>
+	  <md-input-container>
+        <input flex type="number" ng-value="10" ng-model="results" aria-label="results" aria-controls="results-slider" ng-change="getProducts(search)" />
+      </md-input-container>
+      <span>Results &nbsp</span>
+      <md-slider flex min="10" max="100" ng-model="results" aria-label="results" id="results-slider" ng-change="getProducts(search)" />
+      </md-slider>      
+    </md-slider-container>
+    </md-list-item>
+	
+	<!--
+	<md-list-item>
+      <md-slider-container>
+	  <md-input-container>
+        <input flex type="number" ng-value="10" ng-model="radius" aria-label="radius" aria-controls="radius-slider" ng-change="getProducts(search)" />
+      </md-input-container>
+      <span>KM </span>
+      <md-slider flex min="{{mindistanceint+1}}" max="1000" ng-model="radius" aria-label="radius" id="radius-slider" ng-change="getProducts(search)" />
+      </md-slider>      
+    </md-slider-container>
+    </md-list-item>
+	-->
+	
+	<md-list-item>
+      <md-slider-container>
+	  <md-input-container>
+        <input flex type="number" ng-value="50" ng-model="price" aria-label="price" aria-controls="price-slider" ng-change="getProducts(search)" />
+      </md-input-container>
+      <span>Price &nbsp</span>
+      <md-slider flex min="10" max="99" ng-model="price" aria-label="price" id="price-slider" ng-change="getProducts(search)" />
+      </md-slider>      
+    </md-slider-container>
+    </md-list-item>
+  
+  <md-list-item>
+  
+  <md-input-container class="md-block" flex>
+            <label>Order by</label>
+            <md-select ng-model="orderby" ng-change="getProducts(search)">
+              <md-option ng-repeat="column in columns">{{column}}</md-option>
+            </md-select>
+          </md-input-container>
+	 <md-switch ng-model="order" aria-label="Desc" ng-true-value="'desc'" ng-false-value="'asc'" class="md-warn" ng-change="getProducts(search)">
+	 <md-tooltip md-direction="bottom">Descending sort order</md-tooltip>
+	 </md-switch>
+  </md-list-item>
+  
+  <!--
+   <md-chips ng-model="types" readonly="false" md-removable="true"
+              md-enable-chip-edit="true"></md-chips>
+  -->
+  
     <md-list-item ng-href="https://www.liquery.com/pricedrops">
       <md-icon style="padding-right: 16px; color: #000000">money</md-icon>
       <p>Price Drops</p>
@@ -21,6 +75,8 @@
       <md-icon style="padding-right: 16px; color: #000000">settings_ethernet</md-icon>
       <p>Settings</p>
     </md-list-item>
+	
+
   </md-list>
 </md-sidenav>
 
@@ -31,31 +87,42 @@
           <label>Search LiQuery</label>
           <input type="text" ng-model="search" id="search" ng-change="getProducts(search)"/ >
         </md-input-container>
-        <md-input-container>
+        <md-input-container flex>
         <label>Postal Code</label>
         <input type="text" ng-model="postalcode" id="postalcode" ng-change="getProducts(search)" / >
       </md-input-container>
 		<!--md-button class="md-raised" ng-click="getProducts()">Search</md-button-->
-          <md-input-container class="md-block" flex-gt-sm>
+          <md-input-container class="md-block" flex>
             <label>KM</label>
             <md-select ng-model="radius" ng-change="getProducts(search)">
-			<md-option>{{mindistanceint+1}}</md-option>
+			  <md-option>{{mindistanceint+1}}</md-option>
               <md-option ng-repeat="distance in distances" value="{{distance}}.0">
                 {{distance}}
               </md-option>
             </md-select>
-          </md-input-container>		
+          </md-input-container>
+		<md-input-container class="md-block" flex>
+            <label>Results</label>
+            <md-select ng-model="results" ng-change="getProducts(search)">
+              <md-option>10</md-option>
+              <md-option>20</md-option>
+              <md-option>50</md-option>
+              <md-option>100</md-option>
+              <!--<md-option value="999">ALL</md-option>-->
+            </md-select>
+          </md-input-container>
       </section>
 	<div>
-<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;">
-        <md-subheader class="md-no-sticky">Search results (showing {{ totalItems }}):</md-subheader>
+<!--<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;" md-swipe-left="onSwipeLeft()" md-swipe-right="onSwipeRight()">-->
+<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;" >
+        <md-subheader class="md-no-sticky">Search results within {{radius}}KM under ${{price}} (showing {{ totalItems }}):</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null" ng-href="https://www.liquery.com/product?itemnum={{ product.itemnum }}&code={{postalcode}}" style="background-color:#EEEEEE;">
           <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" />
           <div class="md-list-item-text" layout="column">
             <h3>{{product.itemname}}</h3>
-            <h4>{{product.stocktype}} {{product.itemnum}} | {{product.country}} | {{product.type}} {{product.identity}} {{product.varietal}} {{product.size}}mL {{product.alcohol}}% ABV
-			<br />${{product.price}} | <i>{{product.percent}}% off average price ${{product.avgprice}}</i></h4>
-            <p>{{ product.inventory }} in stock at {{product.numstores}} store(s) near {{postalcode}}</p>
+            <h4>{{product.stocktype}} {{product.itemnum}} | {{product.country}} | {{product.varietal || product.type || product.identity}} {{product.quantity>0 ? product.quantity : 1}}x{{product.size}}mL {{product.alcohol}}% ABV
+			<br /><b>${{product.price}}</b> | <i>{{product.percent}}% off average price ~${{product.avgprice}}</i></h4>
+            <p>{{ product.inventory }} in stock at {{product.numstores}} store(s)</p>
           </div>
         </md-list-item>
 </div>  
