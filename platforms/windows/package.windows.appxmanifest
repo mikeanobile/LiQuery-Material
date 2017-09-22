@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-    <Identity Name="com.liquery.mobile" Publisher="CN=$username$" Version="1.0.0.0" />
+    <Identity Name="com.liquery.mobile" Publisher="CN=$username$" Version="1.0.1.0" />
     <Properties>
         <DisplayName>LiQuery Mobile</DisplayName>
         <PublisherDisplayName>LiQuery</PublisherDisplayName>
@@ -26,8 +26,6 @@
                 <m2:SplashScreen Image="images\SplashScreen.png" />
                 <m2:InitialRotationPreference>
                     <m2:Rotation Preference="portrait" />
-                    <m2:Rotation Preference="landscape" />
-                    <m2:Rotation Preference="landscapeFlipped" />
                 </m2:InitialRotationPreference>
             </m2:VisualElements>
         </Application>

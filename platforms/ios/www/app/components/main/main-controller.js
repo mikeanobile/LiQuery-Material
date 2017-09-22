@@ -2,6 +2,7 @@
 
 angular.module("ngapp").controller("MainController", function(shared, $state, $scope, $http, $mdSidenav, $mdComponentRegistry){
 
+
     var ctrl = this;
 
     this.auth = shared.info.auth;
@@ -35,19 +36,30 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	var baseURL = "https://www.liquery.com:8443/LiqueryAPI/GetProduct?search=";
 
 	$scope.products = []
+	$scope.totalItems = 0;
+	$scope.mindistance = 0.0;
+	$scope.mindistanceint = 0;
+	$scope.search = "";
+	$scope.postalcode = "";
 
 	$scope.getProducts = function(value) {
 		var search = $scope.search;
 		var postalcode = $scope.postalcode;
-		var url = baseURL + search + "&postalcode=" + postalcode;
+		var radius = $scope.radius;
+		var url = baseURL + search + "&postalcode=" + postalcode + "&radius=" + radius + "&order=avgpercent desc";
 		console.log(url);
 		$http.get(url).then(function (response) {
 			if (angular.isUndefined(response.data.products[0])) {
 				console.log("No results.");
+				$scope.products = [];
+				$scope.totalItems = 0; 
 			}
 			else {
 				$scope.products = response.data.products;
-				
+				$scope.mindistance = response.data.mindistance;
+				$scope.mindistanceint = response.data.mindistanceint;
+				//$scope.radius = response.data.mindistanceint;
+				//$scope.radius = response.data.mindistance;
 				$scope.totalItems = $scope.products.length;	
 				console.log($scope.products.length + " results.");
 			}
@@ -65,7 +77,7 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 					}
 					else {
 						$scope.postalcode = response.data[0].code;	
-						//console.log($scope.postalcode);
+						$scope.getProducts();
 					}
 				});		  
 			});
@@ -73,4 +85,6 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	}
 	
 	$scope.getLocation();	
+	
+	$scope.distances = [ 5, 10, 25, 50 ];
 });

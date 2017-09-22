@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package IgnorableNamespaces="uap mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
-    <Identity Name="com.liquery.mobile" Publisher="CN=$username$" Version="1.0.0.0" />
+    <Identity Name="com.liquery.mobile" Publisher="CN=$username$" Version="1.0.1.0" />
     <mp:PhoneIdentity PhoneProductId="e56c59d0-9e38-11e7-88cf-fb612beb8c74" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
     <Properties>
         <DisplayName>LiQuery Mobile</DisplayName>
@@ -20,8 +20,6 @@
                 <uap:DefaultTile ShortName="MaterialSeed" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
                 <uap:InitialRotationPreference>
                     <uap:Rotation Preference="portrait" />
-                    <uap:Rotation Preference="landscape" />
-                    <uap:Rotation Preference="landscapeFlipped" />
                 </uap:InitialRotationPreference>
             </uap:VisualElements>
             <uap:ApplicationContentUriRules>

@@ -26,26 +26,36 @@
 
 <div layout="column" layout-align="center center" flex>
 <md-content class="md-padding">
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
         <md-input-container flex>
           <label>Search LiQuery</label>
           <input type="text" ng-model="search" id="search" ng-change="getProducts(search)"/ >
         </md-input-container>
         <md-input-container>
         <label>Postal Code</label>
-        <input type="text" ng-model="postalcode" id="postalcode" / >
+        <input type="text" ng-model="postalcode" id="postalcode" ng-change="getProducts(search)" / >
       </md-input-container>
 		<!--md-button class="md-raised" ng-click="getProducts()">Search</md-button-->
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>KM</label>
+            <md-select ng-model="radius" ng-change="getProducts(search)">
+			<md-option>{{mindistanceint+1}}</md-option>
+              <md-option ng-repeat="distance in distances" value="{{distance}}.0">
+                {{distance}}
+              </md-option>
+            </md-select>
+          </md-input-container>		
       </section>
 	<div>
 <md-list style="overflow-y: scroll;max-height:500px;min-height:250px;">
-        <md-subheader class="md-no-sticky">Search results (showing {{ totalItems}}):</md-subheader>
-        <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null" ng-href="https://www.liquery.com/{{ product.itemnum }}" style="background-color:#EEEEEE;">
+        <md-subheader class="md-no-sticky">Search results (showing {{ totalItems }}):</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null" ng-href="https://www.liquery.com/product?itemnum={{ product.itemnum }}&code={{postalcode}}" style="background-color:#EEEEEE;">
           <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" />
           <div class="md-list-item-text" layout="column">
             <h3>{{product.itemname}}</h3>
-            <h4>{{product.itemnum}} | ${{product.price}}</h4>
-            <p>{{ product.inventory }} in stock near {{postalcode}}</p>
+            <h4>{{product.stocktype}} {{product.itemnum}} | {{product.country}} | {{product.type}} {{product.identity}} {{product.varietal}} {{product.size}}mL {{product.alcohol}}% ABV
+			<br />${{product.price}} | <i>{{product.percent}}% off average price ${{product.avgprice}}</i></h4>
+            <p>{{ product.inventory }} in stock at {{product.numstores}} store(s) near {{postalcode}}</p>
           </div>
         </md-list-item>
 </div>  

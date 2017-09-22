@@ -3,6 +3,8 @@
 angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
 // ngTouch is No Longer Supported by Angular-Material
 
+
+
 .run(function($rootScope, $cordovaDevice, $cordovaStatusbar){
   document.addEventListener("deviceready", function () {
 	// Set AdMobAds options:
@@ -10,7 +12,7 @@ angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
 	console.log("Loading");
     $cordovaStatusbar.overlaysWebView(true); // Always Show Status Bar
     $cordovaStatusbar.styleHex('#42b8ff'); // Status Bar With Red Color, Using Angular-Material Style
-    //window.plugins.orientationLock.lock("portrait");
+    window.plugins.orientationLock.lock("portrait");
 
   }, false);
   /* Hijack Android Back Button (You Can Set Different Functions for Each View by Checking the $state.current)
@@ -30,3 +32,4 @@ angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
     .primaryPalette('red')
     .accentPalette('blue');
 });
+
