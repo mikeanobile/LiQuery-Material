@@ -45,11 +45,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
-*.DS_Store
-
-plugins/*
-plugins\/*
-
-platforms/*
-platforms\/*

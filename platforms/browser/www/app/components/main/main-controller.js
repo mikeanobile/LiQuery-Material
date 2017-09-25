@@ -140,16 +140,17 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 						];
 						
 		$scope.types = [ "Wine", "Beer", "Spirits" ];
-		
+		var inAppBrowserRef;
 		$scope.navigateURL = function(url) {
 			console.log(url);
 			//var target = "_blank";
 			var target = "_self";
 
 			//var options = "location=yes,hidden=yes";
-			var options = "location=no";
+			var options = "location=no,hidden=no";
 
-			var inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
-	
+			inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
 		}
+		
 });
