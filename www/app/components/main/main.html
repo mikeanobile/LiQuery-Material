@@ -72,32 +72,32 @@
    <md-chips ng-model="types" readonly="false" md-removable="true"
               md-enable-chip-edit="true"></md-chips>
   -->
-    <md-list-item ng-href="https://www.liquery.com/search?search=1">
+    <md-list-item ng-click="navigateURL('https://www.liquery.com/search?search=1')">
       <md-icon style="padding-right: 16px; color: #000000">search</md-icon>
       <p>Advanced Search</p>
     </md-list-item>  
-    <md-list-item ng-href="https://www.liquery.com/pricedrops">
+    <md-list-item ng-click="navigateURL('https://www.liquery.com/pricedrops')">
       <md-icon style="padding-right: 16px; color: #000000">local_atm</md-icon>
       <p>Price Drops</p>
     </md-list-item>
-    <md-list-item ng-href="https://www.liquery.com/lists?list=wish">
+    <md-list-item ng-click="navigateURL('https://www.liquery.com/lists?list=wish')">
       <md-icon style="padding-right: 16px; color: #000000">loyalty</md-icon>
       <p>Wish List</p>
     </md-list-item>
-	<md-list-item ng-href="https://www.liquery.com/lists?list=review">
+	<md-list-item ng-click="navigateURL('https://www.liquery.com/lists?list=review')">
       <md-icon style="padding-right: 16px; color: #000000">star</md-icon>
       <p>Reviews</p>
     </md-list-item>
-	<md-list-item ng-href="https://www.liquery.com/lists?list=cellar">
+	<md-list-item ng-click="navigateURL('https://www.liquery.com/lists?list=cellar')">
       <md-icon style="padding-right: 16px; color: #000000">schedule</md-icon>
       <p>Cellar</p>
     </md-list-item>
-	<md-list-item ng-href="https://www.liquery.com/account">
+	<md-list-item ng-click="navigateURL('https://www.liquery.com/account')">
       <md-icon style="padding-right: 16px; color: #000000">account_circle</md-icon>
       <p>Account</p>
     </md-list-item>	
 	
-	<md-list-item ng-href="https://www.liquery.com/">
+	<md-list-item ng-click="navigateURL('https://www.liquery.com/')">
       <md-icon style="padding-right: 16px; color: #000000"><img ng-src="https://www.liquery.com/liquery.png" style="width:24px;height:24px;color: #000000" /></md-icon>
       <p>Visit Mobile Site</p>
     </md-list-item>	
@@ -141,7 +141,7 @@
 <!--<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;" md-swipe-left="onSwipeLeft()" md-swipe-right="onSwipeRight()">-->
 <md-list style="overflow-y: scroll;max-height:512px;min-height:256px;" >
         <md-subheader class="md-no-sticky">Search results within {{radius}}KM under ${{price}} (showing {{ totalItems }}):</md-subheader>
-        <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null" ng-href="https://www.liquery.com/product?itemnum={{ product.itemnum }}&code={{postalcode}}" style="background-color:#EEEEEE;">
+        <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="navigateURL('https://www.liquery.com/product?itemnum='+product.itemnum+'&code='+postalcode)" style="background-color:#EEEEEE;">
           <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" height="100%" /><div class="rating">{{product.score>0 ? product.score : ""}}</div>
           <!--<div class="image"><img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" /><div class="rating">{{product.score}}</div></div>-->
           <div class="md-list-item-text" layout="column">
