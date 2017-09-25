@@ -142,7 +142,7 @@
 <md-list style="overflow-y: scroll;max-height:512px;min-height:256px;" >
         <md-subheader class="md-no-sticky">Search results within {{radius}}KM under ${{price}} (showing {{ totalItems }}):</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="navigateURL('https://www.liquery.com/product?itemnum='+product.itemnum+'&code='+postalcode)" style="background-color:#EEEEEE;">
-          <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" height="100%" /><div class="rating">{{product.score>0 ? product.score : ""}}</div>
+          <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" onerror="this.src='https://www.liquery.com/images/LCBO.jpg'" class="md-avatar" alt="" height="100%" /><div class="rating">{{product.score>0 ? product.score : ""}}</div>
           <!--<div class="image"><img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" /><div class="rating">{{product.score}}</div></div>-->
           <div class="md-list-item-text" layout="column">
             <h3>{{product.itemname}}</h3>
