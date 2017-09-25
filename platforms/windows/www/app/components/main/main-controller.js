@@ -47,8 +47,10 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	$scope.price = 50;
 	$scope.orderby = "avgpercent";
 	$scope.order = "desc";
+	$scope.loading = false;
 
 	$scope.getProducts = function(value) {
+		$scope.loading = true;
 		var search = $scope.search;
 		var postalcode = $scope.postalcode;
 		var radius = $scope.radius;
@@ -60,10 +62,12 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 		var url = baseURL + search + "&postalcode=" + postalcode + "&radius=" + radius + "&limit=" + limit + "&page=" + page + "&price=" + price + "&order=" + orderby + " " + order;
 		console.log(url);
 		$http.get(url).then(function (response) {
+			$scope.loading = false;
 			if (angular.isUndefined(response.data.products[0])) {
 				console.log("No results.");
 				$scope.products = [];
 				$scope.totalItems = 0; 
+				
 			}
 			else {
 				$scope.products = response.data.products;
@@ -80,10 +84,12 @@ angular.module("ngapp").controller("MainController", function(shared, $state, $s
 	$scope.onSwipeRight = function() { $scope.page=1; $scope.getProducts(); } 
 	$scope.getLocation = function(position) {
 		if (navigator.geolocation) {
+			$scope.loading = true;
 			navigator.geolocation.getCurrentPosition(function (position) {
 
 					var url = "https://www.liquery.com:8443/LiqueryAPI/GetPostalCode/code?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
 		  $http.get(url).then(function (response) {
+					$scope.loading = false;
 					if (angular.isUndefined(response.data[0])) {
 						console.log("No results.");
 					}

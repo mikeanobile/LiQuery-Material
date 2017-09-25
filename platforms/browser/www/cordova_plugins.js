@@ -37,6 +37,21 @@ module.exports = [
         "clobbers": [
             "window.AdMob"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
+        "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -48,7 +63,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.4.3",
     "cordova-plugin-admobpro": "2.29.23",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-extension": "1.5.2"
+    "cordova-plugin-extension": "1.5.2",
+    "cordova-plugin-inappbrowser": "1.7.1"
 }
 // BOTTOM OF METADATA
 });

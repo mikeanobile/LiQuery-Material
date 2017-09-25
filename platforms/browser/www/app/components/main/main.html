@@ -1,16 +1,22 @@
 <md-toolbar md-scroll-shrink ng-if="true" flex>
   <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <md-button class="md-icon-button" aria-label="Menu" ng-click="main.toggle()">
-      <md-icon>menu</md-icon>
+      <!--<md-icon>menu</md-icon>-->
+	  <img ng-src="https://www.liquery.com/liquery.png" style="width:24px;height:24px" />
     </md-button>
-    <p><img ng-src="https://www.liquery.com/liquery.png" style="width:32px;height:32px" /> {{ main.title }}</p>
-    <div style="width: 40px; height: 40px;"></div>
+    <p>{{ main.title }}</p> 
+    <div style="width: 32px; height: 32px;"><md-progress-circular md-mode="indeterminate" ng-disabled="!loading" md-diameter="24px" style="float:right;"></md-progress-circular></div>
   </div>
 </md-toolbar>
 
 <md-sidenav class="md-sidenav-left" md-component-id="left">
   <md-toolbar>
-    <h1 class="md-toolbar-tools">Menu</h1>
+    <h1 class="md-toolbar-tools">
+	<md-button class="md-icon-button" aria-label="Menu" ng-click="main.toggle()">
+      <!--<md-icon>menu</md-icon>-->
+	  <img ng-src="https://www.liquery.com/liquery.png" style="width:24px;height:24px" />
+    </md-button>
+	&nbsp Menu</h1>
   </md-toolbar>
   <md-list ng-cloak>
   
@@ -66,23 +72,42 @@
    <md-chips ng-model="types" readonly="false" md-removable="true"
               md-enable-chip-edit="true"></md-chips>
   -->
-  
+    <md-list-item ng-href="https://www.liquery.com/search?search=1">
+      <md-icon style="padding-right: 16px; color: #000000">search</md-icon>
+      <p>Advanced Search</p>
+    </md-list-item>  
     <md-list-item ng-href="https://www.liquery.com/pricedrops">
-      <md-icon style="padding-right: 16px; color: #000000">money</md-icon>
+      <md-icon style="padding-right: 16px; color: #000000">local_atm</md-icon>
       <p>Price Drops</p>
     </md-list-item>
-    <md-list-item ng-href="https://www.liquery.com/account">
-      <md-icon style="padding-right: 16px; color: #000000">settings_ethernet</md-icon>
-      <p>Settings</p>
+    <md-list-item ng-href="https://www.liquery.com/lists?list=wish">
+      <md-icon style="padding-right: 16px; color: #000000">loyalty</md-icon>
+      <p>Wish List</p>
     </md-list-item>
+	<md-list-item ng-href="https://www.liquery.com/lists?list=review">
+      <md-icon style="padding-right: 16px; color: #000000">star</md-icon>
+      <p>Reviews</p>
+    </md-list-item>
+	<md-list-item ng-href="https://www.liquery.com/lists?list=cellar">
+      <md-icon style="padding-right: 16px; color: #000000">schedule</md-icon>
+      <p>Cellar</p>
+    </md-list-item>
+	<md-list-item ng-href="https://www.liquery.com/account">
+      <md-icon style="padding-right: 16px; color: #000000">account_circle</md-icon>
+      <p>Account</p>
+    </md-list-item>	
 	
+	<md-list-item ng-href="https://www.liquery.com/">
+      <md-icon style="padding-right: 16px; color: #000000"><img ng-src="https://www.liquery.com/liquery.png" style="width:24px;height:24px;color: #000000" /></md-icon>
+      <p>Visit Mobile Site</p>
+    </md-list-item>	
 
   </md-list>
 </md-sidenav>
 
 <div layout="column" layout-align="center center" flex>
 <md-content class="md-padding">
-      <section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
+      <section layout="row" layout-sm="row" layout-align="center" style="height:50px !important" layout-wrap>
         <md-input-container flex>
           <label>Search LiQuery</label>
           <input type="text" ng-model="search" id="search" ng-change="getProducts(search)"/ >
@@ -92,7 +117,7 @@
         <input type="text" ng-model="postalcode" id="postalcode" ng-change="getProducts(search)" / >
       </md-input-container>
 		<!--md-button class="md-raised" ng-click="getProducts()">Search</md-button-->
-          <md-input-container class="md-block" flex>
+          <md-input-container flex>
             <label>KM</label>
             <md-select ng-model="radius" ng-change="getProducts(search)">
 			  <md-option>{{mindistanceint+1}}</md-option>
@@ -101,7 +126,7 @@
               </md-option>
             </md-select>
           </md-input-container>
-		<md-input-container class="md-block" flex>
+		<md-input-container flex>
             <label>Results</label>
             <md-select ng-model="results" ng-change="getProducts(search)">
               <md-option>10</md-option>
@@ -114,10 +139,11 @@
       </section>
 	<div>
 <!--<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;" md-swipe-left="onSwipeLeft()" md-swipe-right="onSwipeRight()">-->
-<md-list style="overflow-y: scroll;max-height:500px;min-height:250px;" >
+<md-list style="overflow-y: scroll;max-height:512px;min-height:256px;" >
         <md-subheader class="md-no-sticky">Search results within {{radius}}KM under ${{price}} (showing {{ totalItems }}):</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null" ng-href="https://www.liquery.com/product?itemnum={{ product.itemnum }}&code={{postalcode}}" style="background-color:#EEEEEE;">
-          <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" />
+          <img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" height="100%" /><div class="rating">{{product.score>0 ? product.score : ""}}</div>
+          <!--<div class="image"><img checkImage ng-src="https://www.liquery.com/images/{{ product.itemnum }}.jpg" class="md-avatar" alt="{{product.itemname}}" /><div class="rating">{{product.score}}</div></div>-->
           <div class="md-list-item-text" layout="column">
             <h3>{{product.itemname}}</h3>
             <h4>{{product.stocktype}} {{product.itemnum}} | {{product.country}} | {{product.varietal || product.type || product.identity}} {{product.quantity>0 ? product.quantity : 1}}x{{product.size}}mL {{product.alcohol}}% ABV

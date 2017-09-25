@@ -22,6 +22,9 @@
         },
         "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "com.liquery.liquerymobile"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.liquery.mobile"
         }
     },
     "dependent_plugins": {
