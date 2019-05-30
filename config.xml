@@ -32,7 +32,7 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-admobpro" spec="~2.29.23" />
+    <plugin name="cordova-plugin-admobpro" spec="~2.37.2" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
