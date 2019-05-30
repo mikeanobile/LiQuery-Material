@@ -10,23 +10,24 @@
         "spec": "latest",
         "type": "tag"
       },
-      "d:\\Documents\\GitHub\\LiQuery\\LiQuery Material\\node_modules"
+      "d:\\Documents\\GitHub\\LiQuery\\LiQuery Material"
     ]
   ],
   "_from": "cordova-plugin-admobpro@latest",
-  "_id": "cordova-plugin-admobpro@2.29.23",
+  "_hasShrinkwrap": false,
+  "_id": "cordova-plugin-admobpro@2.37.2",
   "_inCache": true,
   "_location": "/cordova-plugin-admobpro",
-  "_nodeVersion": "4.8.4",
+  "_nodeVersion": "6.11.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/cordova-plugin-admobpro-2.29.23.tgz_1505521651258_0.0907693337649107"
+    "tmp": "tmp/cordova-plugin-admobpro_2.37.2_1547665897555_0.6807604447740314"
   },
   "_npmUser": {
     "name": "floatinghotpot",
     "email": "rjfun.mobile@gmail.com"
   },
-  "_npmVersion": "2.15.11",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
     "raw": "cordova-plugin-admobpro",
@@ -38,14 +39,13 @@
     "type": "tag"
   },
   "_requiredBy": [
-    "#USER",
-    "/"
+    "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-admobpro/-/cordova-plugin-admobpro-2.29.23.tgz",
-  "_shasum": "6e9b0744dce569853e820cbfa26468160128f8f7",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-admobpro/-/cordova-plugin-admobpro-2.37.2.tgz",
+  "_shasum": "e4860c5fcc1fe761adaf5dde29b27afd63699f41",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-admobpro",
-  "_where": "d:\\Documents\\GitHub\\LiQuery\\LiQuery Material\\node_modules",
+  "_where": "d:\\Documents\\GitHub\\LiQuery\\LiQuery Material",
   "author": {
     "name": "Liming Xie"
   },
@@ -66,10 +66,14 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "6e9b0744dce569853e820cbfa26468160128f8f7",
-    "tarball": "https://registry.npmjs.org/cordova-plugin-admobpro/-/cordova-plugin-admobpro-2.29.23.tgz"
+    "shasum": "e4860c5fcc1fe761adaf5dde29b27afd63699f41",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-admobpro/-/cordova-plugin-admobpro-2.37.2.tgz",
+    "integrity": "sha512-/sshroXqqU2wvgMjzBBiW9iGb0WVsN/SVh2gzU8DeEsLl72ZUM0qHrnJEst/1KiMin3A7kU7byti7jwL9Wkcxw==",
+    "fileCount": 31,
+    "unpackedSize": 942154,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcP4HqCRA9TVsSAnZWagAA8hUP/3FhCQV6HMLsECRUdNDX\n3+1ZiVcaPdDnuUqa8RxVhT/Gv8K/j9UMxIy+t1BaYxITJLCe44BMfIcX9dj9\nbO9ZglnW5eKqziR/Xm10t1sg3IOI8nZ1sPQ2xmC/Py7HqFNcizZRkC1gEUfj\nz1IPFXxc5WciGTZ2EgbolewoQ+6cKwegCAe/A4C+LX2fS8kSoq3BPjpsQguG\n1zhvcOHWqcXTeUqJR3d0DfqWEwosFGHDKlvw2bHP49gr4QtP7Tl9tUYMIy0G\nclVw+MxKpcyE9SwTv4EeHjfHyvMGAdtVglkmdLyvThNxs4+UYU+F/I6TyzaZ\nmaE+x+6DZRBZjidm58PEoUS7blLLRllvg0ZdY6C7UICJjNAJszi7cs4PZ543\nY9QvU+vxM4yHre47+1aSsT2uvXuk5gDqNNjEbWpwDEOeaPubr9XTC/GJnfyk\njuEcmIWuzDW/9qWXszeU7cY2Kc3uHFmL5TC1NhdmL9MJ+JjXSQTTAfA2KJlS\nKM07zcx42gY6Xlk0neaRWjG65wnunXgfOOg1RILj1rx3gRGaSjzgM6gO6rjA\nSUa1hum1Zr8MSzpmtMUAZvHEwfGV6zl4WQpapBV/T674KSBUcjY0GsRNih7H\neScJYcXtyNtQh2Y4rHAlXSzzarYtAS/tswgQX/vsmN0vc4U6PDsbHLsp1vnW\ndW9s\r\n=PQBS\r\n-----END PGP SIGNATURE-----\r\n"
   },
-  "gitHead": "32ffbe20238667a1cae2b40e80bc4c685270bfc6",
+  "gitHead": "a890482ee8e7af41e3021c2e66a205c1fbe65024",
   "homepage": "https://github.com/floatinghotpot/cordova-admob-pro#readme",
   "keywords": [
     "cordova",
@@ -132,5 +136,5 @@
     "url": "git+https://github.com/floatinghotpot/cordova-admob-pro.git"
   },
   "scripts": {},
-  "version": "2.29.23"
+  "version": "2.37.2"
 }
